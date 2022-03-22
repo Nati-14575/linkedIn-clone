@@ -78,28 +78,26 @@ function Modal({ handleClose, type }) {
         </motion.div>
       )}
 
-      {
-        (type = "gifYouUp" && (
-          <motion.div
-            className='modal rounded-l-lg flex bg-[#1D2226] w-full max-w-6xl -mt-[7vh] mx-6'
-            onClick={(e) => e.stopPropagation()}
-            variants={gifYouUp}
-            initial='hidden'
-            animate='visible'
-            exit='exit'
-          >
-            <motion.img
-              alt=''
-              onDoubleClick={handleClose}
-              src={post.photoUrl}
-              className=' max-h-[80vh] w-full max-w-3xl rounded-l-lg'
-            />
-            <div className='w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg'>
-              <Post post={post} modalPost />
-            </div>
-          </motion.div>
-        ))
-      }
+      {type === "gifYouUp" && (
+        <motion.div
+          className='modal rounded-l-lg flex bg-[#1D2226] w-full max-w-6xl -mt-[7vh] mx-6'
+          onClick={(e) => e.stopPropagation()}
+          variants={gifYouUp}
+          initial='hidden'
+          animate='visible'
+          exit='exit'
+        >
+          <motion.img
+            alt=''
+            onDoubleClick={handleClose}
+            src={post.photoUrl}
+            className=' max-h-[80vh] w-full max-w-3xl rounded-l-lg'
+          />
+          <div className='w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg'>
+            <Post post={post} modalPost />
+          </div>
+        </motion.div>
+      )}
     </Backdrop>
   );
 }
